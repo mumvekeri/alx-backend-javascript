@@ -6,9 +6,14 @@ export default function handleProfileSignup() {
 
   return Promise.all([photoPromise, userPromise])
     .then(([photoResponse, userResponse]) => {
-      console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
+      if (photoResponse && userResponse) {
+        console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
+      } else {
+        console.error('Invalid response received');
+      }
     })
-    .catch(() => {
+    .catch(error => {
+      console.error('Error occurred:', error.message);
       console.error('Signup system offline');
     });
 }
