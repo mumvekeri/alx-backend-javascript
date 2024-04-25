@@ -1,5 +1,6 @@
-import ClassRoom from './ClassRoom.js';
-
-const classroom = new ClassRoom(30);
-
-console.log(classroom._maxStudentsSize);
+// classRoom.js
+export default class ClassRoom {
+  constructor(maxStudentsSize) {
+    this._maxStudentsSize = maxStudentsSize;
+  }
+}
